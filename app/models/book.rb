@@ -1,5 +1,5 @@
 class Book < ActiveRecord::Base
-  validates_presence_of :title, :author
+  validates_presence_of :title
 
   before_save :normalize_title
 

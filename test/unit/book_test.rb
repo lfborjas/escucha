@@ -3,7 +3,7 @@ require 'test_helper'
 class BookTest < ActiveSupport::TestCase
   test "that the presence of author and title are enforced" do
     book = Book.create
-    assert_equal 2, book.errors.size
+    assert_equal 1, book.errors.size
   end
 
   test "that the title is normalized" do
