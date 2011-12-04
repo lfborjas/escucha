@@ -20,7 +20,7 @@
           <td class="author"><%= book.author %></td>
           <td class="title"><%= book.title %></td>
           <td class="year"><%= book.year %></td>
-          <td><%= link_to 'Detalles', book %></td>
+          <td><%= link_to 'Comentarios', book_path(book, :anchor => 'disqus_thread')%></td>
           <td><%= link_to 'Editar', edit_book_path(book) %></td>
           <td><%= link_to 'Eliminar', book, confirm: '¿Confirmás que querés eliminarlo?', method: :delete %></td>
         </tr>
@@ -29,3 +29,15 @@
   </table>
 </div>
 
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'escucha'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
