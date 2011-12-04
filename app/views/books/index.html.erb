@@ -1,29 +1,31 @@
-<h1>Listing books</h1>
+<h1>Libros</h1>
 
-<table>
-  <tr>
-    <th>Author</th>
-    <th>Title</th>
-    <th>Year</th>
-    <th>Status</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<%= link_to 'Agregar nuevo', new_book_path %>
 
-<% @books.each do |book| %>
-  <tr>
-    <td><%= book.author %></td>
-    <td><%= book.title %></td>
-    <td><%= book.year %></td>
-    <td><%= book.status %></td>
-    <td><%= link_to 'Show', book %></td>
-    <td><%= link_to 'Edit', edit_book_path(book) %></td>
-    <td><%= link_to 'Destroy', book, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
+<div id="books">
+  <table>
+    <thead>
+      <tr>
+        <th class="sort" data-sort="author">Autor</th>
+        <th class="sort" data-sort="title">Título</th>
+        <th class="sort" data-sort="year">Año de publicación</th>
+        <th colspan="3">
+          <input type="text" class="search" placeholder="Buscar"/>
+        </th>
+      </tr>
+    </thead>
+    <tbody class="list">
+      <% @books.each do |book| %>
+        <tr>
+          <td class="author"><%= book.author %></td>
+          <td class="title"><%= book.title %></td>
+          <td class="year"><%= book.year %></td>
+          <td><%= link_to 'Detalles', book %></td>
+          <td><%= link_to 'Editar', edit_book_path(book) %></td>
+          <td><%= link_to 'Eliminar', book, confirm: '¿Confirmás que querés eliminarlo?', method: :delete %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
-<br />
-
-<%= link_to 'New Book', new_book_path %>
