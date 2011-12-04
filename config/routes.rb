@@ -1,5 +1,10 @@
 Escucha::Application.routes.draw do
-  resources :books
+  
+  root :to => "books#index"
+
+  scope(:path_names => {:new => "nuevo", :edit => "editar"}) do
+    resources :books, :path => "libros"
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -5,6 +5,9 @@ class Book < ActiveRecord::Base
 
   private
   def normalize_title
-    self.title.gsub!(/\s+/, ' ').strip!.capitalize!
+    puts self.inspect
+    self.title.gsub!(/\s+/, ' ')
+    self.title.strip!
+    self.title.capitalize!
   end
 end
